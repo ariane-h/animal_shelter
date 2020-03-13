@@ -8,18 +8,22 @@ Important information for the shelter to know is:
 * For the dog:
     * Name
     * Owner
+    * Age
+    * Breed
+    * Size
+    * Bio
 * For the owner:
     * Name
     * Email address
     * Contact number
+    * Bio lisiting what they're looking for
     * Dog (if reserved)
 * Allow an owner to reserve a dog (assign a dog to an owner)
-* CRUD actions for dogs / owners - remember the user - what would they want to see on each View? What Views should there be?
+* A staff member can edit, add, update and delete both dogs and owners.
+* Staff members can also see a list of all owners and dogs and also which dog is assinged to which owner.
 
 Possible Extensions:
 
-* Add age, breed and size to dogs.
-* Add a short bio for dogs.
 * Add an availability status for dogs. Which dogs are available and which are reserved?
 * Add characteristics to dogs and preferences to owners. List potential dog matches for owners.
 * Add profile images for dogs.
