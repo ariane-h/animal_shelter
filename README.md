@@ -16,7 +16,7 @@ Important information for the shelter to know is:
 * Allow an owner to reserve a dog (assign a dog to an owner)
 * CRUD actions for dogs / owners - remember the user - what would they want to see on each View? What Views should there be?
 
-Possible Extensions
+Possible Extensions:
 
 * Add age, breed and size to dogs.
 * Add a short bio for dogs.
