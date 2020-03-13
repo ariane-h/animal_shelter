@@ -10,13 +10,14 @@ Important information for the shelter to know is:
     * Owner
     * Age
     * Breed
+    * Gender
     * Size
     * Bio
 * For the owner:
     * Name
     * Email address
     * Contact number
-    * Bio lisiting what they're looking for
+    * Bio listing what they're looking for
     * Dog (if reserved)
 * Allow an owner to reserve a dog (assign a dog to an owner)
 * A staff member can edit, add, update and delete both dogs and owners.
