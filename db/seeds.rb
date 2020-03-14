@@ -3,6 +3,8 @@ require('pry-byebug')
 require_relative('../models/owner.rb')
 require_relative('../models/dog.rb')
 
+Dog.delete_all
+Owner.delete_all
 
 owner2 = Owner.new({
   'name' => 'Daisy Steiner',
@@ -12,7 +14,9 @@ owner2 = Owner.new({
   'has_other_dogs' => false,
   'has_children' => false,
   'bio' => 'Daisy is looking for a cute fluffy dog.'})
+
 owner2.save
+
 
 dog1 = Dog.new({
   'name' => 'Poppy',
@@ -25,7 +29,21 @@ dog1 = Dog.new({
   'ok_w_children' => true,
   'bio' => 'My name is Poppy and I am the cutest',
   'owner_id' => owner2.id })
+dog2 = Dog.new({
+    'name' => 'Colin',
+    'age' => 5,
+    'gender' => 'male',
+    'size' => 'small',
+    'breed' => 'Miniature Schnauzer',
+    'ok_w_cats' => false,
+    'ok_w_dogs' => true,
+    'ok_w_children' => true,
+    'bio' => 'Hi, i am Colin',
+    'owner_id' => owner2.id })
+
 dog1.save
+dog2.save
+
 
 binding.pry
 nil
