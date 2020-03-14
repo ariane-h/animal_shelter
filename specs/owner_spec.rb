@@ -18,8 +18,32 @@ class TestOwner < Minitest::Test
 
   end
 
-      def test_get_name
-        assert_equal('Daisy Steiner', @owner2.name)
-      end
+    def test_get_name
+      assert_equal('Daisy Steiner', @owner2.name)
+    end
 
+    def test_get_email
+      assert_equal('daisy@gmail.com', @owner2.email)
+    end
+
+    def test_get_phone
+      assert_equal('01234568', @owner2.phone)
+    end
+
+    def test_has_cats
+      assert_equal(false, @owner2.has_cats)
+    end
+
+    def test_has_other_dogs
+      assert_equal(false, @owner2.has_other_dogs)
+    end
+
+    def test_has_children
+      assert_equal(false, @owner2.has_children)
+    end
+
+    def test_get_bio
+      bio = 'Daisy is looking for a cute fluffy dog.'
+      assert_equal(bio, @owner2.bio)
+    end
 end
