@@ -22,6 +22,6 @@ CREATE TABLE dogs (
   ok_w_cats BOOLEAN,
   ok_w_dogs BOOLEAN,
   ok_w_children BOOLEAN,
-  owner_id INT REFERENCES owners(id),
-  bio VARCHAR(255)
+  bio VARCHAR(255),
+  owner_id INT REFERENCES owners(id)
 );
