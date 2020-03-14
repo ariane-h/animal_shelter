@@ -18,7 +18,6 @@ Important information for the shelter to know is:
     * Email address
     * Contact number
     * Bio listing what they're looking for
-    * Dog (if reserved)
 * Allow an owner to reserve a dog (assign a dog to an owner)
 * A staff member can edit, add, update and delete both dogs and owners.
 * Staff members can also see a list of all owners and dogs and also which dog is assinged to which owner.
