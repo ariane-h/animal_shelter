@@ -69,6 +69,30 @@ attr_reader :id
     SqlRunner.run(sql, values)
   end
 
+  def owner
+    sql = "SELECT owners.* from owners
+           INNER JOIN dogs ON owners.id = dogs.owner_id
+           WHERE dogs.id = $1"
+    values = [@id]
+    owner = SqlRunner.run(sql, values).first
+    return owner
+  end
+
+  def assign_to_owner(owner_id)
+    sql = "UPDATE dogs SET owner_id = $1
+            WHERE dogs.id = $2"
+    values = [owner_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM dogs WHERE id = $1"
+    values = [id]
+    dog = SqlRunner.run(sql, values)
+    result = Dog.new(dog.first)
+    return result
+  end
+
   def self.all
     sql = "SELECT * FROM dogs"
     dogs = SqlRunner.run(sql)

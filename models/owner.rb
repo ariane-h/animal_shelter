@@ -59,6 +59,23 @@ attr_reader :id
     SqlRunner.run(sql, values)
   end
 
+  def dogs
+    sql = "SELECT dogs.* from dogs
+           INNER JOIN owners ON dogs.owner_id = owners.id
+           WHERE owners.id = $1"
+    values = [@id]
+    dogs = SqlRunner.run(sql, values)
+    result = dogs.map { |dog| Dog.new(dog) }
+    return result
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM owners WHERE id = $1"
+    values = [id]
+    owner = SqlRunner.run(sql, values)
+    result = Owner.new(owner.first)
+    return result
+  end
 
   def self.all
     sql = "SELECT * FROM owners"
