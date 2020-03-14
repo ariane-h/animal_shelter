@@ -5,8 +5,9 @@
     <title></title>
   </head>
   <body>
-    <h1>index page</h1>
-    <h2>click here to see all the dogs</h2>
-    <h2>click here to see all the owners</h2>
+    <h1>show all dogs</h1>
+      <% @dogs.each do |dog| %>
+      <p><%= dog.name %></p>
+      <% end %>
   </body>
 </html>
