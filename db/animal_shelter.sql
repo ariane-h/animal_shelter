@@ -5,7 +5,7 @@ CREATE TABLE owners (
   id SERIAL primary key,
   name VARCHAR(255),
   email VARCHAR(255),
-  phone_number VARCHAR(255),
+  phone VARCHAR(255),
   bio VARCHAR(255),
   has_cats BOOLEAN,
   has_other_dogs BOOLEAN,
@@ -19,9 +19,9 @@ CREATE TABLE dogs (
   gender VARCHAR(255),
   size VARCHAR(255),
   breed VARCHAR(255),
-  bio VARCHAR(255),
-  ok_with_cats BOOLEAN,
-  ok_with_dogs BOOLEAN,
-  ok_with_children BOOLEAN,
-  owner_id INT REFERENCES owners(id)
+  ok_w_cats BOOLEAN,
+  ok_w_dogs BOOLEAN,
+  ok_w_children BOOLEAN,
+  owner_id INT REFERENCES owners(id),
+  bio VARCHAR(255)
 );
