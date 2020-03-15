@@ -1,0 +1,30 @@
+<h2>ADD A NEW OWNER</h2>
+<form method="POST" action="/owners">
+
+  <label for="name">Full Name:</label>
+  <input type="text" name="name">
+
+  <label for="email">Email:</label>
+  <input type="email" name="email">
+
+  <label for="phone">Phone:</label>
+  <input type="tel" name="phone">
+
+  <label for="has_cats">Has cats?</label>
+  <input type="hidden" name="has_cats" value="false" id="has_cats">
+  <input type="checkbox" name="has_cats" value="true" id="has_cats">
+
+  <label for="has_other_dogs">Has other dogs?</label>
+  <input type="hidden" name="has_other_dogs" value="false" id="has_other_dogs">
+  <input type="checkbox" name="has_other_dogs" value="true" id="has_other_dogs">
+
+  <label for="has_other_dogs">Has children?</label>
+  <input type="hidden" name="has_children" value="false" id="has_children">
+  <input type="checkbox" name="has_children" value="true" id="has_children">
+
+  <label for="bio"></label>
+  <input type="text" name="bio">
+
+
+    <input type="submit" value="Add Owner">
+</form>
