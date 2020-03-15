@@ -12,9 +12,15 @@
     <p>Breed: <%= @dog.breed %></p>
 
     <p>Ok with cats?</p>
-  
-    <p>Ok with other dogs?</p>
+      <p><%=  @dog.ok_w_cats == 't'? "yes" : "no" %></p>
 
+    <p>Ok with other dogs?</p>
+      <p><%=  @dog.ok_w_dogs == 't'? "yes" : "no" %></p>
+
+    <p>Ok with children?</p>
+      <p><%=  @dog.ok_w_children == 't'? "yes" : "no" %></p>
+
+    <p><%= @dog.bio %></p>
 
   </body>
 </html>
