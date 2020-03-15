@@ -8,7 +8,7 @@ Owner.delete_all
 
 
 owner1 = Owner.new({
-  'name' => 'Not rehomed yet',
+  'name' => 'no owner',
   'email' => 'na',
   'phone' => 'na',
   'has_cats' => false,
@@ -65,7 +65,6 @@ dog2 = Dog.new({
 
 dog1.save
 dog2.save
-
 
 binding.pry
 nil

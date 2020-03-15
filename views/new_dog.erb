@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>ADD A NEW DOG</h1>
-  </body>
-</html>
+<h2>ADD A NEW DOG</h2>
+<form method="POST" action="/dogs">
+
+  <label for="name">Name:</label>
+  <input type="text" name="name">
+
+  <label for="age">Age:</label>
+  <input type="number" name="age">
+
+  <label for="gender_select">Gender:</label>
+    <select name="gender" id="gender_select">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
+
+  <label for="size_select">Size:</label>
+    <select name="size" id="size_select">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+
+    <label for="breed">Breed:</label>
+      <input type="text" name="breed" >
+
+    <label for="ok_w_cats">Ok with cats:</label>
+    <input type="hidden" name="ok_w_cats" value="false" id="ok_w_cats">
+    <input type="checkbox" name="ok_w_cats" value="true" id="ok_w_cats">
+
+
+    <label for="ok_w_dogs">Ok with dogs:</label>
+    <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs">
+    <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs">
+
+    <label for="ok_w_children">Ok with children:</label>
+    <input type="hidden" name="ok_w_children" value="false" id="ok_w_children">
+    <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children">
+
+    <label for="bio">Bio:</label>
+      <input type="text" name="bio" value="add bio here">
+
+    <input type="hidden" name="owner_id" value="<%= @no_owner %>">
+
+    <input type="submit" value="Add Dog">
+</form>
