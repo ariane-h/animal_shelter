@@ -33,6 +33,7 @@ end
 get '/dogs/:id/edit' do
   @dog = Dog.find(params['id'])
   @no_owner = Owner.all.first.id.to_i
+  @owners = Owner.all
   erb(:edit_dog)
 end
 
@@ -94,3 +95,5 @@ post '/owners/:id/delete' do
   owner.delete
   redirect to "/owners"
 end
+
+####

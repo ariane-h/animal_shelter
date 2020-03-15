@@ -42,6 +42,19 @@
 
       <input type="hidden" name="owner_id" value="<%= @no_owner %>">
 
+      <hr>
+
+      <label for="owner_select">Select Owner</label>
+
+        <select name="owner_id" id="owner_id" selected="<%= @dog.owner_id  %>">
+        <% @owners.each do |owner| %>
+          <% if owner.id == @dog.owner_id %>
+            <option value=<%= owner.id %> selected><%= owner.name %></option>
+          <% else %>
+            <option value=<%= owner.id %>><%= owner.name %></option>
+          <% end %>
+        <% end %>
+      </select>
 
     <div class="form-el">
       <input type="submit" value="Update Dog Details"/>
