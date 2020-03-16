@@ -13,7 +13,7 @@ end
 #add a new dog
 get '/dogs/new' do
   @dogs = Dog.all
-  @no_owner = Owner.all.first.id.to_i
+  @no_owner = Owner.no_owner['id'].to_i
   erb(:new_dog)
 end
 
@@ -26,13 +26,15 @@ end
 #show dog profile
 get '/dogs/:id' do
   @dog = Dog.find(params['id'])
+  @owners = Owner.all
+  @no_owner = Owner.no_owner['id'].to_i
   erb(:show_dog)
 end
 
 #dog edit form
 get '/dogs/:id/edit' do
   @dog = Dog.find(params['id'])
-  @no_owner = Owner.all.first.id.to_i
+  @no_owner = Owner.no_owner['id'].to_i
   @owners = Owner.all
   erb(:edit_dog)
 end
@@ -53,8 +55,7 @@ end
 
 #show all owners
 get '/owners' do
-  owners = Owner.all
-  @owners = owners.drop(1)
+  @owners = Owner.valid_owners
   erb(:index_owners)
 end
 

@@ -78,6 +78,20 @@ attr_reader :id
     return result
   end
 
+  def self.no_owner
+    sql = "SELECT * FROM owners
+          WHERE owners.name = 'no owner'"
+    no_owner = SqlRunner.run(sql).first
+    return no_owner
+  end
+
+  def self.valid_owners
+    sql = "SELECT * FROM owners WHERE owners.name != 'no owner'"
+    valid_owners = SqlRunner.run(sql)
+    result = valid_owners.map { |owner| Owner.new(owner) }
+    return result
+  end
+
   def self.all
     sql = "SELECT * FROM owners"
     owners = SqlRunner.run(sql)
