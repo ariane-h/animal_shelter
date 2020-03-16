@@ -23,5 +23,6 @@ CREATE TABLE dogs (
   ok_w_dogs BOOLEAN,
   ok_w_children BOOLEAN,
   bio VARCHAR(255),
+  image_name VARCHAR(255),
   owner_id INT REFERENCES owners(id)
 );

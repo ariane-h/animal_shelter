@@ -104,7 +104,6 @@ post '/owners/:id/delete' do
 end
 
 get '/owners/:id/match' do
-
   erb(:match)
 end
 

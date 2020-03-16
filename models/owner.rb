@@ -70,6 +70,12 @@ attr_reader :id
     return result
   end
 
+  def match
+    sql = 
+    dogs = SqlRunner.run(sql)
+
+  end
+
   def self.find( id )
     sql = "SELECT * FROM owners WHERE id = $1"
     values = [id]

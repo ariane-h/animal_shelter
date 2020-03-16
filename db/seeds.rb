@@ -47,6 +47,7 @@ dog1 = Dog.new({
   'ok_w_dogs' => true,
   'ok_w_children' => true,
   'bio' => 'My name is Poppy and I am the cutest',
+  'image_name' => 'poppy',
   'owner_id' => owner2.id })
 
 dog2 = Dog.new({
@@ -59,6 +60,7 @@ dog2 = Dog.new({
     'ok_w_dogs' => true,
     'ok_w_children' => true,
     'bio' => 'Hi, i am Colin',
+    'image_name' => 'colin',
     'owner_id' => owner2.id })
 
 dog1.save

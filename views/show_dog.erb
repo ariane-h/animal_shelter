@@ -7,6 +7,10 @@
   <body>
     <h1>DOG DETAILS</h1>
 
+    <!-- Extension - show profile image -->
+
+    <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
+
 <!-- Extension - Availability Status -->
     <p>Status:</p>
       <% if @dog.owner_id == @no_owner %>
