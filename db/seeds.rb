@@ -6,7 +6,6 @@ require_relative('../models/dog.rb')
 Dog.delete_all
 Owner.delete_all
 
-
 owner1 = Owner.new({
   'name' => 'no owner',
   'email' => 'na',
@@ -34,11 +33,9 @@ owner2 = Owner.new({
     'has_children' => false,
     'bio' => 'Tim is looking for an intimidating tiny dog.'})
 
-
 owner1.save
 owner2.save
 owner3.save
-
 
 dog1 = Dog.new({
   'name' => 'Poppy',
@@ -51,6 +48,7 @@ dog1 = Dog.new({
   'ok_w_children' => true,
   'bio' => 'My name is Poppy and I am the cutest',
   'owner_id' => owner2.id })
+
 dog2 = Dog.new({
     'name' => 'Colin',
     'age' => 5,

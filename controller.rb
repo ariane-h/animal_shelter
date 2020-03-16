@@ -4,6 +4,11 @@ require_relative('models/owner')
 require_relative('models/dog')
 also_reload('./models/*')
 
+
+get '/' do
+  erb(:home)
+end
+
 #show all dogs
 get '/dogs' do
   @dogs = Dog.all
@@ -96,6 +101,11 @@ post '/owners/:id/delete' do
   owner = Owner.find(params['id'])
   owner.delete
   redirect to "/owners"
+end
+
+get '/owners/:id/match' do
+
+  erb(:match)
 end
 
 ####
