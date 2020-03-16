@@ -74,6 +74,7 @@ end
 #show owner profile
 get '/owners/:id' do
   @owner = Owner.find(params['id'])
+  @dogs = Dog.all
   erb(:show_owner)
 end
 
