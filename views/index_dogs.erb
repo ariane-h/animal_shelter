@@ -5,24 +5,18 @@
     <title></title>
   </head>
   <body>
-    <h1>show all dogs</h1>
+    <h1 class="title">all dogs</h1>
 
     <main>
-      <div class="container">
 
-          <div class="profile_image">
+          <div class="dog_profiles">
             <% @dogs.each do |dog| %>
-                <ul><img src="/images/<%= dog.image_name %>.jpg" alt="dog profile image"></ul>
+              <div class="dog_profile_single">
+                <img src="/images/<%= dog.image_name %>.jpg" alt="dog profile image">
+                <a href="/dogs/<%= dog.id %>"><%= dog.name %> </a>
+                </div>
             <% end %>
           </div>
-
-          <div class="profile_name">
-            <% @dogs.each do |dog| %>
-              <ul><a href="/dogs/<%= dog.id %>"><%= dog.name %> </a></ul>
-            <% end %>
-          </div>
-
-      </div>
 
 
     </main>
