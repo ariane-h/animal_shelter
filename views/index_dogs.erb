@@ -6,8 +6,26 @@
   </head>
   <body>
     <h1>show all dogs</h1>
-      <% @dogs.each do |dog| %>
-      <p> <a href="/dogs/<%= dog.id %>"><%= dog.name %> </a> </p>
-      <% end %>
+
+    <main>
+      <div class="container">
+
+          <div class="profile_image">
+            <% @dogs.each do |dog| %>
+                <ul><img src="/images/<%= dog.image_name %>.jpg" alt="dog profile image"></ul>
+            <% end %>
+          </div>
+
+          <div class="profile_name">
+            <% @dogs.each do |dog| %>
+              <ul><a href="/dogs/<%= dog.id %>"><%= dog.name %> </a></ul>
+            <% end %>
+          </div>
+
+      </div>
+
+
+    </main>
+
   </body>
 </html>

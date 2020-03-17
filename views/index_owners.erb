@@ -5,9 +5,19 @@
     <title></title>
   </head>
   <body>
-    <h1>show all owners</h1>
-    <%@owners.each do |owner| %>
-        <p><a href="/owners/<%= owner.id %>"><%= owner.name %></a></p>
-    <% end %>
+
+    <div class="text_container">
+
+      <div class="title">
+        <h1>show all owners</h1>
+      </div>
+
+      <div class="list">
+        <%@owners.each do |owner| %>
+            <li><a href="/owners/<%= owner.id %>"><%= owner.name %></a></li>
+        <% end %>
+      </div>
+
+    </div>
   </body>
 </html>

@@ -1,3 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Crimson Text', serif;
+}
+
 body {
+  font-family: 'Karla', sans-serif;
+  color: #162318;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
   background-color: salmon;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #162318;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: #162318;
+}
+
+.container, a:hover {
+  text-decoration: underline;
+
+}
+
+.container, a {
+  text-decoration: none;
+  color: #162318;
+}
+
+
+.container {
+  border-style: solid;
+  border-width: 5px;
+  border-color: pink;
+
+}
+
+.text_container {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 100px;
+}
+
+
+.title {
+  border-style: solid;
+  border-width: 5px;
+  border-color: purple;
+}
+
+.list {
+  border-style: solid;
+  border-width: 5px;
+  border-color: orange;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  line-height: 2;
+}
+
+.profile_image {
+  display: flex;
+
+  border-style: solid;
+  border-width: 5px;
+  border-color: green;
+}
+
+img {
+  width: 70%;
+}
+
+.profile_name {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+}
+
+.profile_name, ul{
+  padding-right: 50px;
 }

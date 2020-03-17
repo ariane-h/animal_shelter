@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>Dog Shelter</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:600|Karla&display=swap" rel="stylesheet">
   </head>
   <body>
-    <nav id="menu">
-      <li class="menu-item"><a href='/dogs'>Dogs</a></li>
-      <li class="menu-item"><a href='/owners'>Owners</a></li>
-      <li class="menu-item"><a href='/dogs/new'>Add a new dog</a></li>
-      <li class="menu-item"><a href='/owners/new'>Add a new owner</a></li>
+    <nav>
+      <ul class="menu-item"><a href='/dogs'>Dogs</a></ul>
+      <ul class="menu-item"><a href='/owners'>Owners</a></ul>
+      <ul class="menu-item"><a href='/dogs/new'>Add a new dog</a></ul>
+      <ul class="menu-item"><a href='/owners/new'>Add a new owner</a></ul>
     </nav>
     <%= yield %>
   </body>
