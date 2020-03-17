@@ -70,10 +70,35 @@ attr_reader :id
     return result
   end
 
-  def match
-    sql = 
+  def self.available_dogs
+    sql = "SELECT dogs.* FROM dogs
+          INNER JOIN owners ON owners.id = dogs.owner_id
+          WHERE owners.name = 'no owner'"
     dogs = SqlRunner.run(sql)
+    result = dogs.map { |dog| Dog.new(dog) }
+    return result
+  end
+  #
+  def match
+    dogs = Owner.available_dogs
+    matches = []
 
+      cats_result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
+      other_dogs_result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
+      children_result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
+
+      matches.concat(cats_result)
+      matches.concat(other_dogs_result)
+      matches.concat(children_result)
+
+      #
+      # matches.concat(dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)})
+      # matches.concat(dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)})
+      # matches.concat(dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)})
+
+      result = matches
+      return result
+      #matches currently returns each dog that meets each condition line. The problem is if the dog ok with children isn't ok with cats. They are put in matches anyway.
   end
 
   def self.find( id )

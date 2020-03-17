@@ -104,6 +104,8 @@ post '/owners/:id/delete' do
 end
 
 get '/owners/:id/match' do
+  @owner = Owner.find(params['id'])
+  @matches = @owner.match
   erb(:match)
 end
 

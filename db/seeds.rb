@@ -28,7 +28,7 @@ owner2 = Owner.new({
     'name' => 'Tim Bisley',
     'email' => 'phantom_menace@gmail.com',
     'phone' => '734939573',
-    'has_cats' => false,
+    'has_cats' => true,
     'has_other_dogs' => true,
     'has_children' => false,
     'bio' => 'Tim is looking for an intimidating tiny dog.'})
@@ -48,7 +48,7 @@ dog1 = Dog.new({
   'ok_w_children' => true,
   'bio' => 'My name is Poppy and I am the cutest',
   'image_name' => 'poppy',
-  'owner_id' => owner2.id })
+  'owner_id' => owner1.id })
 
 dog2 = Dog.new({
     'name' => 'Colin',
@@ -61,11 +61,26 @@ dog2 = Dog.new({
     'ok_w_children' => true,
     'bio' => 'Hi, i am Colin',
     'image_name' => 'colin',
-    'owner_id' => owner2.id })
+    'owner_id' => owner1.id })
+
+dog3 = Dog.new({
+    'name' => 'Charles',
+    'age' => 5,
+    'gender' => 'male',
+    'size' => 'small',
+    'breed' => 'Pug',
+    'ok_w_cats' => false,
+    'ok_w_dogs' => false,
+    'ok_w_children' => false,
+    'bio' => 'Hi, i am Charles',
+    'image_name' => 'charles',
+    'owner_id' => owner1.id })
 
 dog1.save
 dog2.save
+dog3.save
+
+matches =  owner2.match
 
 binding.pry
 nil
-#
