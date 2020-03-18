@@ -12,65 +12,55 @@
 
     <div class="dog_details_container">
 
-    <!-- Extension - show profile image -->
-    <div class="show_dog_profile_image">
-      <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
-    </div>
-
-
-
+      <!-- Extension - show profile image -->
+      <div class="show_dog_profile_image">
+        <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
+      </div>
 
       <div class="dog_primary_details">
+        <!-- Extension - Availability Status -->
+          <p>Status:
+            <% if @dog.owner_id == @no_owner %>
+              <%= "available" %>
+            <% else %>
+              <%= "reserved" %>
+            <% end %> </p>
 
-      <!-- Extension - Availability Status -->
-        <p>Status:
-          <% if @dog.owner_id == @no_owner %>
-            <%= "available" %>
-          <% else %>
-            <%= "reserved" %>
-          <% end %> </p>
-
-        <p>Name: <%= @dog.name %></p>
-        <p>Age: <%= @dog.age %></p>
-        <p>Size: <%= @dog.size %></p>
-        <p>Breed: <%= @dog.breed %></p>
-        <p>Bio: <%= @dog.bio %></p>
-
-        </div>
-
-
+          <p>Name: <%= @dog.name %></p>
+          <p>Age: <%= @dog.age %></p>
+          <p>Size: <%= @dog.size %></p>
+          <p>Breed: <%= @dog.breed %></p>
+          <p>Bio: <%= @dog.bio %></p>
+      </div>
 
       <div class="dog_secondary_details">
+        <h3>Extra info about this dog:</h3>
+        <p>Ok with cats? <strong><%=  @dog.ok_w_cats == 't'? "Yes" : "No" %></strong></p>
+        <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? "Yes" : "No" %></strong></p>
+        <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? "Yes" : "No" %></strong></p>
 
-      <h3>Extra info about this dog:</h3>
+      </div>
 
-      <p>Ok with cats? <strong><%=  @dog.ok_w_cats == 't'? "Yes" : "No" %></strong></p>
-
-      <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? "Yes" : "No" %></strong></p>
-
-      <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? "Yes" : "No" %></strong></p>
-
-      <h3>Current Owner:</h3>
-        <% @owners.each do |owner| %>
-          <% if owner.id == @dog.owner_id %>
-            <p><%= owner.name %></p>
+      <div class="dog_third_details">
+        <h3>Current Owner:</h3>
+          <% @owners.each do |owner| %>
+            <% if owner.id == @dog.owner_id %>
+              <p><%= owner.name %></p>
+            <% end %>
           <% end %>
-        <% end %>
 
-
-      <h3><a href="/dogs/<%= @dog.id %>/edit">Edit Dog Details</a></h3>
-
+        <h3><a href="/dogs/<%= @dog.id %>/edit">Edit Dog Details</a></h3>
       </div>
 
     </div>
 
-<hr>
+    <hr>
+
     <div class="button">
       <div class="delete_dog_button">
         <form action="/dogs/<%= @dog.id %>/delete" method="POST"><input type="submit" value="Delete this dog"></form>
       </div>
     </div
-
 
   </body>
 </html>

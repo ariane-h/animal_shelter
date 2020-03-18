@@ -6,92 +6,84 @@
   </head>
   <body>
 
-      <div class="title">
-        <h1>add a new dog</h1>
-      </div>
+    <div class="title">
+      <h1>add a new dog</h1>
+    </div>
 
-      <div class="dog_form_container">
+    <div class="dog_form_container">
+      <form method="POST" action="/dogs">
 
-          <form method="POST" action="/dogs">
-                <div class="block">
-                  <label for="name">Name:</label>
-                  <input type="text" name="name">
-                </div>
-
-                <div class="block">
-                  <label for="age">Age:</label>
-                  <input type="number" name="age">
-                </div>
-
-                <div class="block">
-                  <label for="gender_select">Gender:</label>
-                    <select name="gender" class="select_options">
-                      <option value="female">Female</option>
-                      <option value="male">Male</option>
-                    </select>
-                  </div>
-
-
-                <div class="block">
-                  <label for="size_select">Size:</label>
-                    <select name="size" class="select_options">
-
-                        <option value="small" >Small</option>
-                        <option value="medium" >Medium</option>
-                        <option value="large" >Large</option>
-
-                    </select>
-                </div>
-
-                <div class="block">
-                  <label for="breed">Breed:</label>
-                    <input type="text" name="breed" >
-                </div>
-
-
-
-                <div class="block">
-                  <label for="image_name">Image name:</label>
-                    <input type="text" name="image_name" >
-                </div>
-
-                <div class="block">
-                  <label for="ok_w_cats">Ok with cats:</label>
-                    <input type="hidden" name="ok_w_cats" value="false" class="checkbox">
-                    <input type="checkbox" name="ok_w_cats" value="true" class="checkbox">
-                </div>
-
-                <div class="block">
-                  <label for="ok_w_dogs">Ok with dogs:</label>
-                    <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs">
-                    <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs">
-                </div>
-
-                <div class="block">
-                  <label for="ok_w_children">Ok with children:</label>
-                    <input type="hidden" name="ok_w_children" value="false" id="ok_w_children">
-                    <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children">
-                </div>
-
-                <div class="block">
-                  <label for="bio">Bio:</label>
-                    <textarea name="bio"></textarea>
-                </div>
-
-        <!-- when a dog is added to the shelter, it's first assigned to no owner-->
-            <input type="hidden" name="owner_id" value="<%= @no_owner %>">
-
-            <div class="button">
-              <div class="form_button">
-                <input type="submit" value="Add Dog">
-              </div>
-            </div>
-
-
-
-          </form>
+        <div class="block">
+          <label for="name">Name:</label>
+            <input type="text" name="name">
         </div>
 
+        <div class="block">
+          <label for="age">Age:</label>
+            <input type="number" name="age">
+        </div>
+
+        <div class="block">
+          <label for="gender_select">Gender:</label>
+            <select name="gender" class="select_options">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+        </div>
+
+        <div class="block">
+          <label for="size_select">Size:</label>
+            <select name="size" class="select_options">
+              <option value="small" >Small</option>
+              <option value="medium" >Medium</option>
+              <option value="large" >Large</option>
+            </select>
+        </div>
+
+        <div class="block">
+          <label for="breed">Breed:</label>
+            <input type="text" name="breed" >
+        </div>
+
+        <div class="block">
+          <label for="image_name">Image name:</label>
+            <input type="text" name="image_name" >
+        </div>
+
+        <div class="block">
+          <label for="ok_w_cats">Ok with cats:</label>
+            <input type="hidden" name="ok_w_cats" value="false" class="checkbox">
+            <input type="checkbox" name="ok_w_cats" value="true" class="checkbox">
+        </div>
+
+        <div class="block">
+          <label for="ok_w_dogs">Ok with dogs:</label>
+            <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs">
+            <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs">
+        </div>
+
+        <div class="block">
+          <label for="ok_w_children">Ok with children:</label>
+            <input type="hidden" name="ok_w_children" value="false" id="ok_w_children">
+            <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children">
+        </div>
+
+        <div class="block">
+          <label for="bio">Bio:</label>
+            <textarea name="bio"></textarea>
+        </div>
+
+    <!-- when a dog is added to the shelter, it's first assigned to no owner-->
+        <input type="hidden" name="owner_id" value="<%= @no_owner %>">
+
+        <div class="button">
+          <div class="form_button">
+            <input type="submit" value="Add Dog">
+          </div>
+        </div>
+
+      </form>
+    </div>
 
   </body>
 </html>

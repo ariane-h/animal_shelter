@@ -2,20 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Owners</title>
   </head>
   <body>
 
-      <div class="title">
-        <h1>show all owners</h1>
-      </div>
+    <div class="title">
+      <h1>show all owners</h1>
+    </div>
 
-      <div class="owner_list">
-        <%@owners.each do |owner| %>
-            <div class="owner_name"><a href="/owners/<%= owner.id %>"><%= owner.name %></a></div>
-        <% end %>
-      </div>
-
+    <div class="owner_list">
+      <%@owners.each do |owner| %>
+          <div class="owner_name">
+            <a href="/owners/<%= owner.id %>"><%= owner.name %></a>
+          </div>
+      <% end %>
+    </div>
 
   </body>
 </html>
