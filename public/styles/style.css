@@ -10,7 +10,6 @@ h1, h2 {
 body {
   font-family: 'Karla', sans-serif;
   color: #162318;
-
 }
 
 nav {
@@ -45,6 +44,11 @@ a:visited {
   color: #162318;
 }
 
+.h3,a {
+  text-underline-position: under;
+  text-decoration: underline #E29578;
+}
+
 .title {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -58,6 +62,7 @@ a:visited {
   padding-left: 150px;
   line-height: 2.5;
 }
+
 
 .dog_details_container {
   display: grid;
@@ -73,9 +78,6 @@ a:visited {
 .dog_secondary_details {
   padding-left: 40px;
 }
-
-
-
 
 .list {
   font-size: 18px;
@@ -114,9 +116,6 @@ img {
   box-shadow: 10px 10px #FFDDD2;
 }
 
-
-
-
 .dog_form_container {
   background-color: #EDF6F9;
   padding-left: 150px;
@@ -152,13 +151,9 @@ img {
 }
 
 form {
-  /* border-style: solid;
-  border-width: 5px;
-  border-color: orange; */
   padding-top: 30px;
   padding-bottom: 50px;
   font-size: 18px;
-
   line-height: 2.5;
 
 }
@@ -170,14 +165,9 @@ label {
   padding-right: 10px;
 }​
 
-
-
 input[type="checkbox"] {
   margin-left: 10px;
-
 }
-
-
 
 .form_button {
   padding-left: 156px;
@@ -229,8 +219,6 @@ textarea {
   font-size: 14px;
 }
 
-
-
 input[type=submit] {
   font-size: 14px;
   font-weight: 400;
@@ -243,4 +231,10 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+hr {
+  border: solid 1px;
+  border-color: #FFDDD2;
+  margin: 20px;
 }
