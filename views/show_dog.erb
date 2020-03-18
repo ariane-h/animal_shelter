@@ -23,12 +23,12 @@
       <div class="dog_primary_details">
 
       <!-- Extension - Availability Status -->
-        <p>Status:
+        <h2>status:
           <% if @dog.owner_id == @no_owner %>
             <%= "available" %>
           <% else %>
             <%= "reserved" %>
-          <% end %> </p>
+          <% end %> </h2>
 
         <p>Name: <%= @dog.name %></p>
         <p>Age: <%= @dog.age %></p>
@@ -50,6 +50,11 @@
 
       <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? "Yes" : "No" %></strong></p>
 
+</div>
+
+    <div class="dog_third_details">
+
+
       <h3>Current Owner:</h3>
         <% @owners.each do |owner| %>
           <% if owner.id == @dog.owner_id %>
@@ -59,10 +64,10 @@
 
 
       <h3><a href="/dogs/<%= @dog.id %>/edit">Edit Dog Details</a></h3>
-
+      </div>
       </div>
 
-    </div>
+
 
 <hr>
     <div class="button">
