@@ -12,28 +12,20 @@
 
     <div class="owner_details_container">
 
-    <p>Name: <%= @owner.name %></p>
-    <p>Email: <%= @owner.email %></p>
-    <p>Phone: <%= @owner.phone %></p>
+      <p>Name: <%= @owner.name %></p>
+      <p>Email: <%= @owner.email %></p>
+      <p>Phone: <%= @owner.phone %></p>
+      <p>Bio: <%= @owner.bio %> </p>
+      <p>Has cats? <strong><%= @owner.has_cats == 't'? "Yes" : "No" %></strong></p>
+      <p>Has other dogs? <strong><%= @owner.has_other_dogs == 't'? "Yes" : "No" %></strong></p>
+      <p>Has children? <strong><%= @owner.has_children == 't'? "Yes" : "No" %></strong></p>
 
-    <p>Bio: <%= @owner.bio %> </p>
-
-    <p>Has cats? <strong><%= @owner.has_cats == 't'? "Yes" : "No" %></strong></p>
-
-    <p>Has other dogs? <strong><%= @owner.has_other_dogs == 't'? "Yes" : "No" %></strong></p>
-
-    <p>Has children? <strong><%= @owner.has_children == 't'? "Yes" : "No" %></strong></p>
-
-
-        <h3> Dogs reserved for <%= @owner.name %> : </h3>
-          <p><% @dogs.each do |dog| %>
-            <% if dog.owner_id == @owner.id %>
+      <h3> Dogs reserved for <%= @owner.name %> : </h3>
+        <p><% @dogs.each do |dog| %>
+          <% if dog.owner_id == @owner.id %>
               <ul><%= dog.name %></ul>
-              <% end %>
-          <% end %> </p>
-
-
-
+            <% end %>
+        <% end %> </p>
 
       <h3><a href="/owners/<%= @owner.id %>/edit">Edit Owner Details</a></h3>
       <hr>
