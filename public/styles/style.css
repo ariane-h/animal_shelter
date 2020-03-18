@@ -59,8 +59,20 @@ a:visited {
   line-height: 2.5;
 }
 
+.dog_details_container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: 100%;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 150px;
+  line-height: 2.5;
+}
 
-
+.dog_secondary_details {
+  padding-left: 40px;
+}
 
 
 .list {
@@ -150,6 +162,14 @@ input[type="checkbox"] {
 .form_button {
   padding-left: 156px;
   padding-top: 10px;
+}
+
+.delete_dog_button {
+  padding-left: 180px;
+}
+
+.delete_dog_button form {
+  padding-top: 5px;
 }
 
 input[type="text"], input[type="number"], input[type="tel"], input[type="Email"] {
