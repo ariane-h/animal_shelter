@@ -28,7 +28,7 @@
 
                 <div class="block">
                   <label for="gender_select">Gender:</label>
-                    <select name="gender" id="gender_select">
+                    <select name="gender" class="select_options">
                       <option value="female">Female</option>
                       <option value="male">Male</option>
                     </select>
@@ -37,10 +37,12 @@
 
                 <div class="block">
                   <label for="size_select">Size:</label>
-                    <select name="size" id="size_select">
-                      <option value="small">Small</option>
-                      <option value="medium">Medium</option>
-                      <option value="large">Large</option>
+                    <select name="size" class="select_options">
+
+                        <option value="small" >Small</option>
+                        <option value="medium" >Medium</option>
+                        <option value="large" >Large</option>
+
                     </select>
                 </div>
 
@@ -49,10 +51,7 @@
                     <input type="text" name="breed" >
                 </div>
 
-                <div class="block">
-                  <label for="bio">Bio:</label>
-                    <input type="text" name="bio" value="add bio here">
-                </div>
+
 
                 <div class="block">
                   <label for="image_name">Image name:</label>
@@ -77,11 +76,18 @@
                     <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children">
                 </div>
 
+                <div class="block">
+                  <label for="bio">Bio:</label>
+                    <textarea name="bio"></textarea>
+                </div>
+
         <!-- when a dog is added to the shelter, it's first assigned to no owner-->
             <input type="hidden" name="owner_id" value="<%= @no_owner %>">
 
             <div class="button">
-              <input type="submit" value="Add Dog">
+              <div class="form_button">
+                <input type="submit" value="Add Dog">
+              </div>
             </div>
 
 

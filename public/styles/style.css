@@ -10,13 +10,13 @@ h1, h2 {
 body {
   font-family: 'Karla', sans-serif;
   color: #162318;
-  background-color: #f4fbf2
+
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
-  background-color: salmon;
+  background-color: #E29578;
   width: 100%;
 }
 
@@ -37,22 +37,13 @@ nav a:hover {
   color: #162318;
 }
 
-/* .container, a:hover {
-  text-decoration: underline;
-
+a:link {
+  color: #162318;
 }
 
-.container, a {
-  text-decoration: none;
+a:visited {
   color: #162318;
-} */
-
-
-/* .container {
-  border-style: solid;
-  border-width: 5px;
-  border-color: pink;
-} */
+}
 
 .title {
   padding-top: 40px;
@@ -73,9 +64,6 @@ nav a:hover {
 
 
 .list {
-  /* border-style: solid;
-  border-width: 5px;
-  border-color: orange; */
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -87,26 +75,36 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  padding-left: 150px;
 }
 
 .dog_profile_single {
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .dog_profile_single a {
   text-align: center;
+  padding-top: 18px;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.02em;
 }
 
 img {
-  width: 350px;
+  width: 310px;
+  box-shadow: 10px 10px #FFDDD2;
 }
 
 
 
 
 .dog_form_container {
-  background-color: yellow;
+  background-color: #EDF6F9;
   padding-left: 150px;
   font-size: 18px;
 
@@ -117,7 +115,8 @@ form {
   /* border-style: solid;
   border-width: 5px;
   border-color: orange; */
-
+  padding-top: 30px;
+  padding-bottom: 50px;
   font-size: 18px;
 
   line-height: 2.5;
@@ -128,19 +127,68 @@ label {
   display: inline-block;
   width: 140px;
   text-align: right;
+  padding-right: 10px;
 }​
+
 
 
 input[type="checkbox"] {
   margin-left: 10px;
+
 }
 
 
 
+.form_button {
+  padding-left: 156px;
+  padding-top: 10px;
+}
+
+input[type="text"], input[type="number"] {
+  border: solid;
+  border-width: 1px;
+  border-color: #83C5BE;
+  width: 12%;
+  padding: 4px 2px;
+  font-size: 14px;
+}
+
+textarea {
+  border: solid;
+  border-width: 1px;
+  border-color: #83C5BE;
+  font-size: 14px;
+  width: 25%;
+  height: 80px;
+  resize: none;
+  text-indent: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.bio_label {
+
+}
+
+.select_options {
+  letter-spacing: 0.05em;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: #83C5BE;
+  width: 12.5%;
+  padding: 4px 2px;
+  font-size: 14px;
+}
+
+
 
 input[type=submit] {
-  width: 20%;
-  background-color: #4CAF50;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  width: 15%;
+  background-color: #006D77;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
