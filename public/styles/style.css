@@ -111,6 +111,14 @@ img {
   line-height: 2.5;
 }
 
+.owner_form_container {
+  background-color: #EDF6F9;
+  padding-left: 150px;
+  font-size: 18px;
+
+  line-height: 2.5;
+}
+
 form {
   /* border-style: solid;
   border-width: 5px;
@@ -144,7 +152,7 @@ input[type="checkbox"] {
   padding-top: 10px;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], input[type="tel"], input[type="Email"] {
   border: solid;
   border-width: 1px;
   border-color: #83C5BE;
