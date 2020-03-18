@@ -70,7 +70,7 @@ attr_reader :id
     return result
   end
 
-  def self.available_dogs
+  def self.available_dogs #finds dogs that are not assigned to an owner
     sql = "SELECT dogs.* FROM dogs
           INNER JOIN owners ON owners.id = dogs.owner_id
           WHERE owners.name = 'no owner'"
@@ -78,28 +78,31 @@ attr_reader :id
     result = dogs.map { |dog| Dog.new(dog) }
     return result
   end
+
+
+# extension method match to match available dogs to owners based on characteristics
+# currently returns the result of each conditional rather than the total
+
+  # def match
+  #   dogs = Owner.available_dogs
+  #   matches = []
   #
-  def match
-    dogs = Owner.available_dogs
-    matches = []
-
-      cats_result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
-      other_dogs_result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
-      children_result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
-
-      matches.concat(cats_result)
-      matches.concat(other_dogs_result)
-      matches.concat(children_result)
-
-      #
-      # matches.concat(dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)})
-      # matches.concat(dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)})
-      # matches.concat(dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)})
-
-      result = matches
-      return result
-      #matches currently returns each dog that meets each condition line. The problem is if the dog ok with children isn't ok with cats. They are put in matches anyway.
-  end
+  #     cats_result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
+  #     other_dogs_result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
+  #     children_result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
+  #
+  #     matches.concat(cats_result)
+  #     matches.concat(other_dogs_result)
+  #     matches.concat(children_result)
+  #
+  #     #
+  #     # matches.concat(dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)})
+  #     # matches.concat(dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)})
+  #     # matches.concat(dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)})
+  #
+  #     result = matches
+  #     return result
+  # end
 
   def self.find( id )
     sql = "SELECT * FROM owners WHERE id = $1"
@@ -109,14 +112,14 @@ attr_reader :id
     return result
   end
 
-  def self.no_owner
+  def self.no_owner #returns 'no owner'
     sql = "SELECT * FROM owners
           WHERE owners.name = 'no owner'"
     no_owner = SqlRunner.run(sql).first
     return no_owner
   end
 
-  def self.valid_owners
+  def self.valid_owners #returns all owners except 'no owner'
     sql = "SELECT * FROM owners WHERE owners.name != 'no owner'"
     valid_owners = SqlRunner.run(sql)
     result = valid_owners.map { |owner| Owner.new(owner) }

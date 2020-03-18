@@ -103,10 +103,11 @@ post '/owners/:id/delete' do
   redirect to "/owners"
 end
 
-get '/owners/:id/match' do
-  @owner = Owner.find(params['id'])
-  @matches = @owner.match
-  erb(:match)
-end
+#extension for matching available dogs to owners
+# get '/owners/:id/match' do
+#   @owner = Owner.find(params['id'])
+#   @matches = @owner.match
+#   erb(:match)
+# end
 
 ####

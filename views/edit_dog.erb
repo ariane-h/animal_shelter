@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit Dog Details</title>
   </head>
   <body>
 
@@ -11,91 +11,87 @@
     </div>
 
     <div class="dog_form_container">
-
       <form method="POST" action="/dogs/<%= @dog.id %>">
-        <div class="form-wrapper">
 
-            <div class="block">
-              <label for="name">Name:</label>
-              <input type="text" name="name" value="<%= @dog.name %>">
-            </div>
+          <div class="block">
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="<%= @dog.name %>">
+          </div>
 
-            <div class="block">
-              <label for="age">Age:</label>
-              <input type="number" name="age" value="<%= @dog.age %>">
-            </div>
+          <div class="block">
+            <label for="age">Age:</label>
+            <input type="number" name="age" value="<%= @dog.age %>">
+          </div>
 
-            <div class="block">
-            <label for="gender_select">Gender:</label>
-              <select class="select_options" name="gender" id="gender_select" selected="<%= @dog.gender %>">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
+          <div class="block">
+          <label for="gender_select">Gender:</label>
+            <select class="select_options" name="gender" id="gender_select" selected="<%= @dog.gender %>">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+          </div>
+
+          <div class="block">
+            <label for="size_select">Size:</label>
+              <select class="select_options" name="size" id="size_select" selected="<%= @dog.size %>">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
               </select>
-            </div>
+          </div>
 
-            <div class="block">
-              <label for="size_select">Size:</label>
-                <select class="select_options" name="size" id="size_select" selected="<%= @dog.size %>">
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                </select>
-            </div>
+          <div class="block">
+            <label for="breed">Breed:</label>
+              <input type="text" name="breed" value="<%= @dog.breed %>">
+          </div>
 
-            <div class="block">
-              <label for="breed">Breed:</label>
-                <input type="text" name="breed" value="<%= @dog.breed %>">
-            </div>
+          <div class="block">
+            <label for="ok_w_cats">Ok with cats:</label>
+              <% if @dog.ok_w_cats == 't' %>
+                <input type="hidden" name="ok_w_cats" value="false" id="ok_w_cats" >
+                <input type="checkbox" name="ok_w_cats" value="true" id="ok_w_cats" <%= "checked" %>>
+              <% else %>
+                <input type="hidden" name="ok_w_cats" value="false" id="ok_w_cats" >
+                <input type="checkbox" name="ok_w_cats" value="true" id="ok_w_cats" >
+              <% end %>
+          </div>
 
-            <div class="block">
-              <label for="ok_w_cats">Ok with cats:</label>
-                <% if @dog.ok_w_cats == 't' %>
-                    <input type="hidden" name="ok_w_cats" value="false" id="ok_w_cats" >
-                    <input type="checkbox" name="ok_w_cats" value="true" id="ok_w_cats" <%= "checked" %>>
-                <% else %>
-                    <input type="hidden" name="ok_w_cats" value="false" id="ok_w_cats" >
-                    <input type="checkbox" name="ok_w_cats" value="true" id="ok_w_cats" >
-                <% end %>
-            </div>
+          <div class="block">
+            <label for="ok_w_dogs">Ok with dogs:</label>
+              <% if @dog.ok_w_dogs == 't' %>
+                <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs" >
+                <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs" <%= "checked" %>>
+              <% else %>
+                <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs" >
+                <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs" >
+              <% end %>
+          </div>
 
-            <div class="block">
-              <label for="ok_w_dogs">Ok with dogs:</label>
-                <% if @dog.ok_w_dogs == 't' %>
-                  <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs" >
-                  <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs" <%= "checked" %>>
-                <% else %>
-                    <input type="hidden" name="ok_w_dogs" value="false" id="ok_w_dogs" >
-                    <input type="checkbox" name="ok_w_dogs" value="true" id="ok_w_dogs" >
-                <% end %>
-            </div>
+          <div class="block">
+            <label for="ok_w_children">Ok with children:</label>
+              <% if @dog.ok_w_children == 't' %>
+                <input type="hidden" name="ok_w_children" value="false" id="ok_w_children" >
+                <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children" <%= "checked" %>>
+              <% else %>
+                <input type="hidden" name="ok_w_children" value="false" id="ok_w_children" >
+                <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children" >
+              <% end %>
+          </div>
 
-            <div class="block">
-              <label for="ok_w_children">Ok with children:</label>
-                <% if @dog.ok_w_children == 't' %>
-                  <input type="hidden" name="ok_w_children" value="false" id="ok_w_children" >
-                  <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children" <%= "checked" %>>
-                <% else %>
-                    <input type="hidden" name="ok_w_children" value="false" id="ok_w_children" >
-                    <input type="checkbox" name="ok_w_children" value="true" id="ok_w_children" >
-                <% end %>
-            </div>
+          <div class="block">
+            <label for="bio">Bio:</label>
+              <input type="text" name="bio" value="<%= @dog.bio %>">
+          </div>
 
-            <div class="block">
-              <label for="bio">Bio:</label>
-                <input type="text" name="bio" value="<%= @dog.bio %>">
-            </div>
-
-            <div class="block">
-
-            </div>
-              <label for="image_name">Image name:</label>
+          <div class="block">
+            <label for="image_name">Image name:</label>
               <input type="text" name="image_name" value="<%= @dog.image_name %>">
-            </div>
+          </div>
 
-            <h2>select a new owner</h2>
+          <h2>select a new owner</h2>
 
-            <label for="owner_select">Select Owner</label>
-              <select class="select_options" name="owner_id" id="owner_id" selected="<%= @dog.owner_id  %>">
+          <label for="owner_select">Select Owner</label>
+            <select class="select_options" name="owner_id" id="owner_id" selected="<%= @dog.owner_id  %>">
               <% @owners.each do |owner| %>
                 <% if owner.id == @dog.owner_id %>
                   <option value=<%= owner.id %> selected><%= owner.name %></option>
@@ -105,13 +101,12 @@
               <% end %>
             </select>
 
-            <div class="update_dog_details_button">
-              <input type="submit" value="Update Dog Details"/>
-            </div>
-
+          <div class="update_dog_details_button">
+            <input type="submit" value="Update Dog Details"/>
+          </div>
 
       </form>
-      </div>
+    </div>
 
   </body>
 </html>
