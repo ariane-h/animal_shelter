@@ -139,6 +139,15 @@ img {
   line-height: 2.5;
 }
 
+.update_owner_details {
+  padding-left: 150px;
+  width: 100%;
+}
+
+.update_dog_details_button {
+  padding-left: 150px;
+  width: 100%;
+}
 
 form {
   /* border-style: solid;

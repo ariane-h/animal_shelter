@@ -25,9 +25,6 @@
     <p>Has children? <strong><%= @owner.has_children == 't'? "Yes" : "No" %></strong></p>
 
 
-
-
-
         <h3> Dogs reserved for <%= @owner.name %> : </h3>
           <p><% @dogs.each do |dog| %>
             <% if dog.owner_id == @owner.id %>

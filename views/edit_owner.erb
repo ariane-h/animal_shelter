@@ -1,50 +1,79 @@
-<h2>Edit <%= @owner.name %></h2>
 
-<form method="POST" action="/owners/<%= @owner.id %>">
-  <div class="form-wrapper">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Owner</title>
+  </head>
+  <body>
 
-      <label for="name">Full Name:</label>
-      <input type="text" name="name" value="<%= @owner.name %>">
+    <div class="title">
+      <h1>edit details for <%= @owner.name %></h1>
+    </div>
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" value="<%= @owner.email %>">
+    <div class="owner_form_container">
 
-      <label for="phone">Phone:</label>
-      <input type="tel" name="phone" value="<%= @owner.phone %>">
+    <form method="POST" action="/owners/<%= @owner.id %>">
+      <div class="form-wrapper">
 
-      <label for="has_cats">Has cats?</label>
-        <% if @owner.has_cats == 't' %>
-            <input type="hidden" name="has_cats" value="false" id="has_cats" >
-            <input type="checkbox" name="has_cats" value="true" id="has_cats" <%= "checked" %>>
-        <% else %>
-            <input type="hidden" name="has_cats" value="false" id="has_cats" >
-            <input type="checkbox" name="has_cats" value="true" id="has_cats" >
-        <% end %>
+          <div class="block">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" value="<%= @owner.name %>">
+          </div>
 
-      <label for="has_other_dogs">Has other dogs?</label>
-        <% if @owner.has_other_dogs == 't' %>
-            <input type="hidden" name="has_other_dogs" value="false" id="has_other_dogs" >
-            <input type="checkbox" name="has_other_dogs" value="true" id="has_other_dogs" <%= "checked" %>>
-        <% else %>
-            <input type="hidden" name="has_other_dogs" value="false" id="has_other_dogs" >
-            <input type="checkbox" name="has_other_dogs" value="true" id="has_other_dogs" >
-        <% end %>
+          <div class="block">
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="<%= @owner.email %>">
+          </div>
 
-      <label for="has_children">Has children?</label>
-        <% if @owner.has_children == 't' %>
-            <input type="hidden" name="has_children" value="false" id="has_children" >
-            <input type="checkbox" name="has_children" value="true" id="has_children" <%= "checked" %>>
-        <% else %>
-            <input type="hidden" name="has_children" value="false" id="has_children" >
-            <input type="checkbox" name="has_children" value="true" id="has_children" >
-        <% end %>
+          <div class="block">
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" value="<%= @owner.phone %>">
+          </div>
 
-      <label for="bio"></label>
-      <input type="text" name="bio" value="<%= @owner.bio %>">
+          <div class="block">
+            <label for="has_cats">Has cats?</label>
+              <% if @owner.has_cats == 't' %>
+                  <input type="hidden" name="has_cats" value="false" id="has_cats" >
+                  <input type="checkbox" name="has_cats" value="true" id="has_cats" <%= "checked" %>>
+              <% else %>
+                  <input type="hidden" name="has_cats" value="false" id="has_cats" >
+                  <input type="checkbox" name="has_cats" value="true" id="has_cats" >
+              <% end %>
+          </div>
 
-      <div class="form-el">
-        <input type="submit" value="Update Owner Details"/>
+          <div class="block">
+            <label for="has_other_dogs">Has other dogs?</label>
+              <% if @owner.has_other_dogs == 't' %>
+                  <input type="hidden" name="has_other_dogs" value="false" id="has_other_dogs" >
+                  <input type="checkbox" name="has_other_dogs" value="true" id="has_other_dogs" <%= "checked" %>>
+              <% else %>
+                  <input type="hidden" name="has_other_dogs" value="false" id="has_other_dogs" >
+                  <input type="checkbox" name="has_other_dogs" value="true" id="has_other_dogs" >
+              <% end %>
+          </div>
+
+          <div class="block">
+            <label for="has_children">Has children?</label>
+              <% if @owner.has_children == 't' %>
+                  <input type="hidden" name="has_children" value="false" id="has_children" >
+                  <input type="checkbox" name="has_children" value="true" id="has_children" <%= "checked" %>>
+              <% else %>
+                  <input type="hidden" name="has_children" value="false" id="has_children" >
+                  <input type="checkbox" name="has_children" value="true" id="has_children" >
+              <% end %>
+          </div>
+
+          <label for="bio">Notes:</label>
+          <textarea name="bio"><%= @owner.bio %></textarea>
+
+          <div class="update_owner_details">
+            <input type="submit" value="Update Owner Details"/>
+          </div>
+
       </div>
+    </form>
 
-  </div>
-</form>
+    </div>
+  </body>
+</html>
