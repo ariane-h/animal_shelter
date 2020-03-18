@@ -21,9 +21,9 @@
         <!-- Extension - Availability Status -->
           <p>Status:
             <% if @dog.owner_id == @no_owner %>
-              <%= "available" %>
+              <%= "Available" %>
             <% else %>
-              <%= "reserved" %>
+              <%= "Reserved" %>
             <% end %> </p>
 
           <p>Name: <%= @dog.name %></p>

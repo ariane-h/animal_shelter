@@ -196,10 +196,10 @@ textarea {
   border-width: 1px;
   border-color: #83C5BE;
   font-size: 14px;
-  width: 25%;
-  height: 80px;
-  resize: none;
+  width: 40%;
+  height: 25px;
   text-indent: 10px;
+  resize: none;
   padding-top: 10px;
   margin-top: 10px;
 }
