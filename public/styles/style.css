@@ -75,8 +75,17 @@ a:visited {
   line-height: 2.5;
 }
 
+
+.dog_primary_details {
+  padding-left: 20px;
+}
+
 .dog_secondary_details {
   padding-left: 40px;
+}
+
+.dog_third_details {
+  padding-left: 20px;
 }
 
 .list {
