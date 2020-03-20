@@ -30,6 +30,11 @@
         <% end %> </p>
 
       <h3><a href="/owners/<%= @owner.id %>/edit">Edit Owner Details</a></h3>
+      <h3> Possible matches below:</h3>
+        <% names = @matches.map { |match|  match.name } %>
+          <%names.each do |name| %>
+          <ul><%= name %></ul>
+        <% end %>
       <hr>
       <form action="/owners/<%= @owner.id %>/delete" method="POST"><input type="submit" value="Delete this owner"></form>
 

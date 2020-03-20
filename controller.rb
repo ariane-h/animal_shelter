@@ -79,6 +79,7 @@ end
 #show owner profile
 get '/owners/:id' do
   @owner = Owner.find(params['id'])
+  @matches = @owner.match
   @dogs = Dog.all
   @no_owner = Owner.no_owner['id'].to_i
   erb(:show_owner)

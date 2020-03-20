@@ -84,23 +84,24 @@ attr_reader :id
 
   #check if the owner has cats, and if the dog is ok with cats
   def check_ok_cats(dogs)
-    result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
+    result = dogs.select { |dog| ((@has_cats == 't' && dog.ok_w_cats == 't') || @has_cats == 'f')}
     return result
   end
 
   #check if the owner has other dogs, and if the dog is ok with other dogs
   def check_ok_dogs(dogs)
-    result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
+    result = dogs.select { |dog| ((@has_other_dogs == 't' && dog.ok_w_dogs == 't') || @has_other_dogs == 'f')}
     return result
   end
 
   #check if the owner has children, and if the dog is ok with children
   def check_ok_children(dogs)
-    result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
+    result = dogs.select { |dog| ((@has_children == 't' && dog.ok_w_children == 't') || @has_children == 'f')}
     return result
   end
 
   def match
+
     dogs = Owner.available_dogs
       matches = []
 
