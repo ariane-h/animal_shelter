@@ -31,11 +31,41 @@ owner2 = Owner.new({
     'has_cats' => true,
     'has_other_dogs' => true,
     'has_children' => false,
-    'bio' => 'Tim is looking for an intimidating tiny dog.'})
+    'bio' => 'Tim is looking for an intimidating tiny dog, good with cats and other dogs.'})
+
+  owner4 = Owner.new({
+    'name' => 'Brian Topp',
+    'email' => 'modern@gmail.com',
+    'phone' => '734939573',
+    'has_cats' => true,
+    'has_other_dogs' => true,
+    'has_children' => true,
+    'bio' => 'Brian is looking for a dog good with cats, children and other dogs.'})
+
+  owner5 = Owner.new({
+    'name' => 'Twist Morgan',
+    'email' => 'fashion@gmail.com',
+    'phone' => '734939573',
+    'has_cats' => false,
+    'has_other_dogs' => true,
+    'has_children' => false,
+    'bio' => 'Twist is looking for fashionable dog, good with other dogs.'})
+
+  owner6 = Owner.new({
+    'name' => 'Mike Watt',
+    'email' => 'bovril@gmail.com',
+    'phone' => '734939573',
+    'has_cats' => false,
+    'has_other_dogs' => false,
+    'has_children' => false,
+    'bio' => 'Mike is looking for a best friend.'})
 
 owner1.save
 owner2.save
 owner3.save
+owner4.save
+owner5.save
+owner6.save
 
 dog1 = Dog.new({
   'name' => 'Poppy',

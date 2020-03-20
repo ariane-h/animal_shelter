@@ -80,6 +80,7 @@ end
 get '/owners/:id' do
   @owner = Owner.find(params['id'])
   @dogs = Dog.all
+  @no_owner = Owner.no_owner['id'].to_i
   erb(:show_owner)
 end
 

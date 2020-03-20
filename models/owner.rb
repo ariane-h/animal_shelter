@@ -81,28 +81,38 @@ attr_reader :id
 
 
 # extension method match to match available dogs to owners based on characteristics
-# currently returns the result of each conditional rather than the total
 
-  # def match
-  #   dogs = Owner.available_dogs
-  #   matches = []
-  #
-  #     cats_result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
-  #     other_dogs_result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
-  #     children_result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
-  #
-  #     matches.concat(cats_result)
-  #     matches.concat(other_dogs_result)
-  #     matches.concat(children_result)
-  #
-  #     #
-  #     # matches.concat(dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)})
-  #     # matches.concat(dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)})
-  #     # matches.concat(dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)})
-  #
-  #     result = matches
-  #     return result
-  # end
+  #check if the owner has cats, and if the dog is ok with cats
+  def check_ok_cats(dogs)
+    result = dogs.select { |dog| ((@has_cats == true && dog.ok_w_cats == 't') || @has_cats == false)}
+    return result
+  end
+
+  #check if the owner has other dogs, and if the dog is ok with other dogs
+  def check_ok_dogs(dogs)
+    result = dogs.select { |dog| ((@has_other_dogs == true && dog.ok_w_dogs == 't') || @has_other_dogs == false)}
+    return result
+  end
+
+  #check if the owner has children, and if the dog is ok with children
+  def check_ok_children(dogs)
+    result = dogs.select { |dog| ((@has_children == true && dog.ok_w_children == 't') || @has_children == false)}
+    return result
+  end
+
+  def match
+    dogs = Owner.available_dogs
+      matches = []
+
+      #check dogs that are ok with cats
+      cat_result = check_ok_cats(dogs)
+      #check dogs that are ok with cats are also fine with other dogs
+      cat_dog_result = check_ok_dogs(cat_result)
+      #check dogs that are ok with cats and other dogs are also ok with children
+      matches = check_ok_children(cat_dog_result)
+
+      return matches
+  end
 
   def self.find( id )
     sql = "SELECT * FROM owners WHERE id = $1"

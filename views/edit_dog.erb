@@ -91,7 +91,7 @@
           <h2>select a new owner</h2>
 
           <label for="owner_select">Select Owner</label>
-            <select class="select_options" name="owner_id" id="owner_id" selected="<%= @dog.owner_id  %>">
+            <select class="select_options" name="owner_id" id="owner_id">
               <% @owners.each do |owner| %>
                 <% if owner.id == @dog.owner_id %>
                   <option value=<%= owner.id %> selected><%= owner.name %></option>
