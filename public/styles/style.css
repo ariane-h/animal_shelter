@@ -245,5 +245,7 @@ input[type=submit] {
 hr {
   border: solid 1px;
   border-color: #FFDDD2;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%
 }
