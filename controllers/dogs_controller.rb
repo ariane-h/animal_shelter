@@ -1,18 +1,18 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('models/owner')
-require_relative('models/dog')
-also_reload('./models/*')
+require_relative('../models/owner')
+require_relative('../models/dog')
+also_reload('../models/*')
 
 get '/dogs' do
     @dogs = Dog.all
-    erb(:index_dogs)
+    erb(:"dogs/index")
 end
 
 get '/dogs/new' do
     @dogs = Dog.all
     @no_owner = Owner.no_owner['id'].to_i
-    erb(:new_dog)
+    erb(:"dogs/new")
 end
 
 post '/dogs' do
@@ -24,14 +24,14 @@ get '/dogs/:id' do
     @dog = Dog.find(params['id'])
     @owners = Owner.all
     @no_owner = Owner.no_owner['id'].to_i
-    erb(:show_dog)
+    erb(:"dogs/show")
 end
 
 get '/dogs/:id/edit' do
     @dog = Dog.find(params['id'])
     @no_owner = Owner.no_owner['id'].to_i
     @owners = Owner.all
-    erb(:edit_dog)
+    erb(:"dogs/edit")
 end
 
 post '/dogs/:id' do
