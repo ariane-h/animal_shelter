@@ -52,53 +52,6 @@ class TestDog < Minitest::Test
       @dog2.save
 
     end
-  #
-  # def test_get_name
-  #   assert_equal('Poppy', @dog1.name)
-  # end
-  #
-  # def test_get_age
-  #   assert_equal(7, @dog1.age)
-  # end
-  #
-  # def test_get_gender
-  #   assert_equal('female', @dog1.gender)
-  # end
-  #
-  # def test_get_size
-  #   assert_equal('medium', @dog1.size)
-  # end
-  #
-  # def test_get_breed
-  #   assert_equal('Poodle', @dog1.breed)
-  # end
-  #
-  # def test_get_ok_w_cats
-  #   assert_equal(true, @dog1.ok_w_cats)
-  # end
-  #
-  # def test_get_ok_w_dogs
-  #   assert_equal(true, @dog1.ok_w_dogs)
-  # end
-  #
-  # def test_get_ok_w_children
-  #   assert_equal(true, @dog1.ok_w_children)
-  # end
-  #
-  # def test_get_bio
-  #   result = "My name is Poppy and I am the cutest"
-  #   assert_equal(result, @dog1.bio)
-  # end
-  #
-  # def test_get_owner_id
-  #   assert_equal(@owner2.id.to_i, @dog1.owner_id)
-  # end
-  #
-  # def test_delete_dog
-  #   @dog2.delete
-  #   result = Dog.all.count
-  #   assert_equal(1, result)
-  # end
 
 
 end

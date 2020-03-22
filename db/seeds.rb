@@ -110,7 +110,6 @@ dog1.save
 dog2.save
 dog3.save
 
-# matches =  owner2.match
-#
+
 binding.pry
 nil

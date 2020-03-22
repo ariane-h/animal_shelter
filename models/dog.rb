@@ -2,7 +2,9 @@ require_relative('../db/sql_runner')
 
 class Dog
 
-attr_accessor :name, :age, :gender, :size, :breed, :ok_w_cats, :ok_w_dogs, :ok_w_children, :bio, :image_name, :owner_id
+attr_accessor :name, :age, :gender, :size, :breed, :ok_w_cats, 
+              :ok_w_dogs, :ok_w_children, :bio, :image_name, 
+              :owner_id
 attr_reader :id
 
   def initialize ( options )
@@ -40,7 +42,9 @@ attr_reader :id
             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
           )
           RETURNING id"
-    values = [@name,@age,@gender,@size,@breed,@ok_w_cats,@ok_w_dogs,@ok_w_children,@bio,@image_name,@owner_id]
+    values = [@name,@age,@gender,@size,@breed,@ok_w_cats,@ok_w_dogs,
+              @ok_w_children,@bio,@image_name,@owner_id
+            ]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -62,7 +66,8 @@ attr_reader :id
             owner_id
           ) = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
           WHERE id = $12"
-    values = [@name,@age,@gender,@size,@breed,@ok_w_cats,@ok_w_dogs,@ok_w_children,@bio,@image_name,@owner_id,@id]
+    values = [@name,@age,@gender,@size,@breed,@ok_w_cats,@ok_w_dogs,
+              @ok_w_children,@bio,@image_name,@owner_id,@id]
     SqlRunner.run(sql, values)
   end
 

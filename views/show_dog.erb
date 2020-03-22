@@ -12,13 +12,12 @@
 
     <div class="dog_details_container">
 
-      <!-- Extension - show profile image -->
       <div class="show_dog_profile_image">
         <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
       </div>
 
       <div class="dog_primary_details">
-        <!-- Extension - Availability Status -->
+     
           <p>Status:
             <% if @dog.owner_id == @no_owner %>
               <%= "Available" %>

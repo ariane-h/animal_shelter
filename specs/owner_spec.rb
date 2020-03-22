@@ -59,22 +59,11 @@ class TestOwner < Minitest::Test
       assert_equal(false, @owner2.has_children)
     end
 
-    def test_get_bio
-      bio = 'Daisy is looking for a cute fluffy dog.'
-      assert_equal(bio, @owner2.bio)
-    end
-
     def test_delete_owner
      @owner2.delete
      result = Owner.all.count
      assert_equal(1, result)
     end
 
-    # def test_update_owner
-    #   name = @owner1.name
-    #   name = 'Barnett'
-    #   @owner1.update
-    #   assert_equal('Barnett',@owner1.name)
-    # end
 
 end

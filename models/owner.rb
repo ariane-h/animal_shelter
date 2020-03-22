@@ -3,7 +3,8 @@ require('pry-byebug')
 
 class Owner
 
-attr_accessor :name, :email, :phone, :has_cats, :has_other_dogs, :has_children, :bio
+attr_accessor :name, :email, :phone, :has_cats, :has_other_dogs,
+              :has_children, :bio
 attr_reader :id
 
   def initialize ( options )
@@ -31,7 +32,8 @@ attr_reader :id
           VALUES
           ($1, $2, $3, $4, $5, $6, $7)
           RETURNING id"
-    values = [@name, @email, @phone, @has_cats, @has_other_dogs, @has_children, @bio]
+    values = [@name, @email, @phone, @has_cats, @has_other_dogs,
+              @has_children, @bio]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -50,7 +52,8 @@ attr_reader :id
             bio
           ) = ($1, $2, $3, $4, $5, $6, $7)
           WHERE id = $8"
-    values = [@name, @email, @phone, @has_cats, @has_other_dogs, @has_children, @bio, @id]
+    values = [@name, @email, @phone, @has_cats, @has_other_dogs,
+              @has_children, @bio, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -70,7 +73,7 @@ attr_reader :id
     return result
   end
 
-  def self.available_dogs #finds dogs that are not assigned to an owner
+  def self.available_dogs 
     sql = "SELECT dogs.* FROM dogs
           INNER JOIN owners ON owners.id = dogs.owner_id
           WHERE owners.name = 'no owner'"
@@ -79,40 +82,26 @@ attr_reader :id
     return result
   end
 
-
-# extension method match to match available dogs to owners based on characteristics
-
-  #check if the owner has cats, and if the dog is ok with cats
   def check_ok_cats(dogs)
     result = dogs.select { |dog| ((@has_cats == 't' && dog.ok_w_cats == 't') || @has_cats == 'f')}
     return result
   end
 
-  #check if the owner has other dogs, and if the dog is ok with other dogs
   def check_ok_dogs(dogs)
     result = dogs.select { |dog| ((@has_other_dogs == 't' && dog.ok_w_dogs == 't') || @has_other_dogs == 'f')}
     return result
   end
 
-  #check if the owner has children, and if the dog is ok with children
   def check_ok_children(dogs)
     result = dogs.select { |dog| ((@has_children == 't' && dog.ok_w_children == 't') || @has_children == 'f')}
     return result
   end
 
   def match
-
     dogs = Owner.available_dogs
-      matches = []
-
-      #check dogs that are ok with cats
-      cat_result = check_ok_cats(dogs)
-      #check dogs that are ok with cats are also fine with other dogs
-      cat_dog_result = check_ok_dogs(cat_result)
-      #check dogs that are ok with cats and other dogs are also ok with children
-      matches = check_ok_children(cat_dog_result)
-
-      return matches
+    cat_result = check_ok_cats(dogs) 
+    cat_dog_result = check_ok_dogs(cat_result)
+    return check_ok_children(cat_dog_result)
   end
 
   def self.find( id )
@@ -148,6 +137,5 @@ attr_reader :id
     sql = "DELETE FROM owners"
     SqlRunner.run(sql)
   end
-
 
 end
