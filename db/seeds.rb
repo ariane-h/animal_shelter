@@ -1,5 +1,3 @@
-require('pry-byebug')
-
 require_relative('../models/owner.rb')
 require_relative('../models/dog.rb')
 
@@ -109,7 +107,3 @@ dog3 = Dog.new({
 dog1.save
 dog2.save
 dog3.save
-
-
-binding.pry
-nil

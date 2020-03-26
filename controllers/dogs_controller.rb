@@ -1,8 +1,7 @@
 require('sinatra')
-require('sinatra/contrib/all')
+require('sinatra/contrib/all') if development?
 require_relative('../models/owner')
 require_relative('../models/dog')
-also_reload('../models/*')
 
 get '/dogs' do
     @dogs = Dog.all
