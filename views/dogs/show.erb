@@ -6,24 +6,28 @@
   </head>
   <body>
 
-    <div class="title">
-      <h1>dog details</h1>
-    </div>
-
+    <h1 class="title"><%= @dog.name%></h1>
     <div class="dog_details_container">
 
-      <div class="show_dog_profile_image">
+      <div class="dog_profile_image">
+       <div>
+      
+    </div>
         <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
+        <h4><a href="/dogs/<%= @dog.id %>/edit">Edit Details</a></h4>
       </div>
 
       <div class="dog_primary_details">
      
-          <p>Status:
+          <h4>Status:
+          
             <% if @dog.owner_id == @no_owner %>
+            <span style="color:green">
               <%= "Available" %>
+              </span>
             <% else %>
               <%= "Reserved" %>
-            <% end %> </p>
+            <% end %> </h4>
 
           <p>Name: <%= @dog.name %></p>
           <p>Age: <%= @dog.age %></p>
@@ -33,31 +37,36 @@
       </div>
 
       <div class="dog_secondary_details">
-        <h3>Extra info about this dog:</h3>
-        <p>Ok with cats? <strong><%=  @dog.ok_w_cats == 't'? "Yes" : "No" %></strong></p>
-        <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? "Yes" : "No" %></strong></p>
-        <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? "Yes" : "No" %></strong></p>
+        <h4>Extra info about this dog:</h4>
+        <p>Ok with cats? <strong><%=   @dog.ok_w_cats == 't'? "&#9989" :  " &#10060" %></strong></p>
+        <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? " &#9989" : " &#10060" %></strong></p>
+        <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? " &#9989" : " &#10060" %></strong></p>
       </div>
 
       <div class="dog_third_details">
-        <h3>Current Owner:</h3>
+        
           <% @owners.each do |owner| %>
-            <% if owner.id == @dog.owner_id %>
+            <% if owner.id == @dog.owner_id && owner.name != 'no owner' %>
+            <h4>Current Owner:</h4>
               <p><%= owner.name %></p>
             <% end %>
           <% end %>
-        <h3><a href="/dogs/<%= @dog.id %>/edit">Edit Dog Details</a></h3>
+        
       </div>
 
     </div>
 
-      <hr>
+      <div class="divider">
+        <hr>
+      </div>
 
-      <div class="button">
-        <div class="delete_dog_button">
-          <form action="/dogs/<%= @dog.id %>/delete" method="POST"><input type="submit" value="Delete this dog"></form>
+    <div class="delete_button_container">
+     
+        <div class="button">
+          <form action="/dogs/<%= @dog.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
         </div>
-      </div
+     
+    </div>
 
   </body>
 </html>
