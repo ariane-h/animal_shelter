@@ -57,11 +57,25 @@ a {
 	justify-content: center;
 }
 
+.title-content {
+	flex-direction: column;
+	align-items: center;
+	display: flex;
+}
+
+.title-content h1 {
+	margin: 8px;
+}
+
+.title-content h3 {
+	margin: 8px;
+}
+
 .owner_list {
 	font-size: 18px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	line-height: 2.5;
 }
 
@@ -152,11 +166,31 @@ img {
 }
 
 .owner_details_container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-left: 10%;
+	padding-right: 10%;
 	font-size: 18px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 150px;
 	line-height: 2.5;
+}
+
+.reserved-dogs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-style: dashed;
+	padding: 15px;
+	margin: 20px;
+	border-color: antiquewhite;
+	width: 500px;
+}
+
+.owner_col_one {
+	justify-self: center;
+}
+
+.owner_col_two {
+	justify-self: center;
 }
 
 .update_owner_details {
@@ -191,8 +225,9 @@ label {
 	padding-top: 10px;
 }
 
-.delete_button_container {
-	padding-left: 12%;
+.delete_button {
+	display: flex;
+	justify-content: center;
 }
 
 input[type="text"],
@@ -275,4 +310,11 @@ hr {
 
 .index-links h3 {
 	padding: 10px;
+}
+
+.pooch_matches {
+	border: antiquewhite;
+	border-style: solid;
+	padding: 25px;
+	width: 260px;
 }

@@ -6,29 +6,23 @@
   </head>
   <body>
 
-    <h1 class="title"><%= @dog.name%></h1>
+  <h1 class="title"><%= @dog.name%></h1>
     <div class="dog_details_container">
 
       <div class="dog_profile_image">
-       <div>
-      
-    </div>
         <img src="/images/<%= @dog.image_name %>.jpg" alt="dog profile image">
         <h4><a href="/dogs/<%= @dog.id %>/edit">Edit Details</a></h4>
       </div>
 
       <div class="dog_primary_details">
-     
-          <h4>Status:
-          
-            <% if @dog.owner_id == @no_owner %>
-            <span style="color:green">
-              <%= "Available" %>
-              </span>
-            <% else %>
-              <%= "Reserved" %>
-            <% end %> </h4>
-
+          <h4>
+            Status:  
+              <% if @dog.owner_id == @no_owner %>
+                <span style="color:green"><%= "Available" %></span>
+              <% else %>
+                <%= "Reserved" %>
+              <% end %>
+          </h4>
           <p>Name: <%= @dog.name %></p>
           <p>Age: <%= @dog.age %></p>
           <p>Size: <%= @dog.size %></p>
@@ -38,35 +32,29 @@
 
       <div class="dog_secondary_details">
         <h4>Extra info about this dog:</h4>
-        <p>Ok with cats? <strong><%=   @dog.ok_w_cats == 't'? "&#9989" :  " &#10060" %></strong></p>
-        <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? " &#9989" : " &#10060" %></strong></p>
-        <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? " &#9989" : " &#10060" %></strong></p>
+        <p>Ok with cats? <strong><%=   @dog.ok_w_cats == 't'? "  &#9989" :  "  &#10060" %></strong></p>
+        <p>Ok with other dogs? <strong><%=  @dog.ok_w_dogs == 't'? "  &#9989" : "  &#10060" %></strong></p>
+        <p>Ok with children? <strong> <%=  @dog.ok_w_children == 't'? "  &#9989" : "  &#10060" %></strong></p>
       </div>
 
       <div class="dog_third_details">
-        
           <% @owners.each do |owner| %>
             <% if owner.id == @dog.owner_id && owner.name != 'no owner' %>
-            <h4>Current Owner:</h4>
+              <h4>Current Owner:</h4>
               <p><%= owner.name %></p>
             <% end %>
           <% end %>
-        
       </div>
 
     </div>
 
-      <div class="divider">
-        <hr>
-      </div>
-
-    <div class="delete_button_container">
-     
-        <div class="button">
-          <form action="/dogs/<%= @dog.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
-        </div>
-     
+    <div class="divider">
+      <hr>
     </div>
-
+       
+    <form class="delete_button" action="/dogs/<%= @dog.id %>/delete" method="POST">
+      <input type="submit" value="Delete">
+    </form>
+    
   </body>
 </html>

@@ -2,49 +2,62 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Animal Shelter</title>
   </head>
   <body>
 
     <div class="title">
-      <h1>Owner Details</h1>
+      <div class="title-content">
+        <h1>Owner Details</h1>
+        <h3><a href="/owners/<%= @owner.id %>/edit">Edit Owner Details</a></h3>
+
+            <% @dogs.each do |dog| %>
+              <% if @owner.id%>
+                <% if dog.owner_id == @owner.id %>
+                  <div class="reserved-dogs">
+                    <h3> Dogs reserved for <%= @owner.name.split.first %> : </h3>
+                    <span style="color:green"><ul><%= dog.name %></ul></span>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+       </div>
     </div>
 
     <div class="owner_details_container">
+      
+      <div class="owner_col_one"> 
+        <h3>Owner Details</h3>
+          <p>Name: <%= @owner.name %></p>
+          <p>Email: <%= @owner.email %></p>
+          <p>Phone: <%= @owner.phone %></p>
+          <p>Notes: <%= @owner.bio %> </p>
+          <p>Has cats? <strong><%= @owner.has_cats == 't'? "  &#9989" :  "  &#10060" %></strong></p>
+          <p>Has other dogs? <strong><%= @owner.has_other_dogs == 't'? "  &#9989" :  "  &#10060" %></strong></p>
+          <p>Has children? <strong><%= @owner.has_children == 't'? "  &#9989" :  "  &#10060" %></strong></p>
+      </div>
 
-      <p>Name: <%= @owner.name %></p>
-      <p>Email: <%= @owner.email %></p>
-      <p>Phone: <%= @owner.phone %></p>
-      <p>Bio: <%= @owner.bio %> </p>
-      <p>Has cats? <strong><%= @owner.has_cats == 't'? "Yes" : "No" %></strong></p>
-      <p>Has other dogs? <strong><%= @owner.has_other_dogs == 't'? "Yes" : "No" %></strong></p>
-      <p>Has children? <strong><%= @owner.has_children == 't'? "Yes" : "No" %></strong></p>
-
-      <hr>
-
-      <h3> Dogs reserved for <%= @owner.name.split.first %> : </h3>
-
-        <p><% @dogs.each do |dog| %>
-          <% if dog.owner_id == @owner.id %>
-              <ul><%= dog.name %></ul>
-          <% end %>
-
-        <% end %> </p>
-
-      <hr>
-
-      <h3> Possible pooch matches for <%= @owner.name.split.first %>:</h3>
-        <% @matches.each do |dog| %>
-          <ul><a href="/dogs/<%= dog.id %>"><%= dog.name %></a></ul>
-        <% end %>
-
-      <hr>
-
-      <h3><a href="/owners/<%= @owner.id %>/edit">Edit Owner Details</a></h3>
-
-
-      <form action="/owners/<%= @owner.id %>/delete" method="POST"><input type="submit" value="Delete this owner"></form>
-
+    <div class="owner_col_two">
+   
+      <div class="matches_content">
+        <div class="pooch_matches">
+            <h3> Possible pooch matches for <%= @owner.name.split.first %></h3>
+              <% @matches.each do |dog| %>
+                  <ul><a href="/dogs/<%= dog.id %>"><%= dog.name %></a></ul>
+              <% end %>
+            </div>
+          </div>
+      </div>      
+     
     </div>
+
+    <div class="divider">
+      <hr>
+    </div>
+
+    <form class="delete_button" action="/owners/<%= @owner.id %>/delete" method="POST">
+      <input type="submit" value="Delete">
+    </form>
+
   </body>
 </html>
