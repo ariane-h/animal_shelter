@@ -29,3 +29,33 @@ Possible Extensions:
 * Add profile images for dogs.
 * Add more types of animal.
 * Record donations from owners.
+
+## :wrench: Setup
+
+This app requires Ruby, Postgres, Sinatra to run.
+
+Clone this repo, then in the root directory, use Terminal to install the gems needed to run the app.
+
+```bash
+bundle install
+```
+
+Create a local Postgres database:
+
+```
+createdb animal_shelter
+```
+
+Load some data into the database:
+
+```
+ruby db/seeds.rb
+```
+
+Run the app:
+
+```
+ruby app.rb
+```
+
+Hop over to http://localhost:4567/ in your browser to use the app. 
