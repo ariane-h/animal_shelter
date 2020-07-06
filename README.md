@@ -2,6 +2,9 @@
 
 A dog shelter has requested an app that can track dogs for rehoming. An owner may reserve more than one dog. A dog is reserved by only one owner.
 
+![animal_shelter_project_gif](public/images/animal_shelter_demo.gif)
+
+
 ## MVP
 
 Important information for the shelter to know is:
